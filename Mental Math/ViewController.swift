@@ -11,11 +11,20 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: Properties
+    var firstNumberInt: Int = 6
+    var secondNumberInt: Int = 5
+    var operation: String = "default"
+    var answer:Int = 0
+    var userAnswer:Int = 2
     
-    @IBOutlet weak var firstNumber: UITextField!
-    @IBOutlet weak var secondNumber: UITextField!
-    @IBOutlet weak var userAnswer: UITextField!
-    @IBOutlet weak var correctAnswer: UILabel!
+
+    @IBOutlet weak var firstNumberTextField: UITextField!
+    @IBOutlet weak var secondNumberTextField: UITextField!
+    @IBOutlet weak var userAnswerTextField: UITextField!
+    @IBOutlet weak var correctAnswerLabel: UILabel!
+
+    @IBOutlet weak var operationLabel: UILabel!
+    @IBOutlet weak var operationSymbolLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +37,53 @@ class ViewController: UIViewController {
     }
 
     // MARK: Actions
-    @IBAction func add(sender: UIButton) {
-        
+    
+    @IBAction func add(sender: UIBarButtonItem) {
+        operation = "Addition"
+        operationSymbolLabel.text = "+"
     }
-    @IBAction func multiply(sender: UIButton) {
+    
+    
+    @IBAction func subtract(sender: UIBarButtonItem) {
+        operation = "subtraction"
+        operationSymbolLabel.text = "-"
     }
-  
-    @IBAction func subtract(sender: UIButton) {
+    
+    @IBAction func multiply(sender: UIBarButtonItem) {
+        operation = "multiplication"
+        operationSymbolLabel.text = "x"
     }
-    @IBAction func divide(sender: UIButton) {
+    
+    @IBAction func divide(sender: UIBarButtonItem) {
+        operation = "division"
+        operationSymbolLabel.text = "÷"
+    }
+    
+    @IBAction func newNumbers(sender: UIButton) {
+        switch operation {
+            case "Addition":
+                firstNumberInt = Int(arc4random_uniform(99) + 1)
+                secondNumberInt = Int(arc4random_uniform(99) + 1)
+                firstNumberTextField.text = String(firstNumberInt)
+                secondNumberTextField.text = String(secondNumberInt)
+            
+            default:
+                firstNumberInt = 0
+        }
+        self.operationLabel.text = operation
+    }
+    
+    @IBAction func checkAnswer(sender: UIButton) {
+        answer = firstNumberInt + secondNumberInt
+        userAnswer = Int(userAnswerTextField.text!)!
+        if userAnswer == answer {
+            correctAnswerLabel.text = "The answer is \(answer). You are correct!"
+        } else {
+            correctAnswerLabel.text = "The answer is \(answer). You are incorrect."
+        }
     }
    
-    @IBAction func checkAnswer(sender: UIButton) {
-    }
+
 }
+
 
