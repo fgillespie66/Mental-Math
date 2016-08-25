@@ -9,6 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // MARK: Properties
+    
+    @IBOutlet weak var firstNumber: UITextField!
+    @IBOutlet weak var secondNumber: UITextField!
+    @IBOutlet weak var userAnswer: UITextField!
+    @IBOutlet weak var correctAnswer: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +27,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    // MARK: Actions
+    @IBAction func add(sender: UIButton) {
+        
+    }
+    @IBAction func multiply(sender: UIButton) {
+    }
+  
+    @IBAction func subtract(sender: UIButton) {
+    }
+    @IBAction func divide(sender: UIButton) {
+    }
+   
+    @IBAction func checkAnswer(sender: UIButton) {
+    }
 }
 
