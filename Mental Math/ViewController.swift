@@ -45,17 +45,17 @@ class ViewController: UIViewController {
     
     
     @IBAction func subtract(sender: UIBarButtonItem) {
-        operation = "subtraction"
+        operation = "Subtraction"
         operationSymbolLabel.text = "-"
     }
     
     @IBAction func multiply(sender: UIBarButtonItem) {
-        operation = "multiplication"
+        operation = "Multiplication"
         operationSymbolLabel.text = "x"
     }
     
     @IBAction func divide(sender: UIBarButtonItem) {
-        operation = "division"
+        operation = "Division"
         operationSymbolLabel.text = "÷"
     }
     
