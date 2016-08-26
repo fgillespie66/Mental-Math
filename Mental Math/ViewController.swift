@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var operation: String = "default"
     var answer:Int = 0
     var userAnswer:Int = 2
+    var score = 0
     
     @IBOutlet weak var firstNumberLabel: UILabel!
     @IBOutlet weak var secondNumberLabel: UILabel!
@@ -23,9 +24,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userAnswerTextField: UITextField!
     @IBOutlet weak var correctAnswerLabel: UILabel!
 
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var operationLabel: UILabel!
     @IBOutlet weak var operationSymbolLabel: UILabel!
+    
+    @IBOutlet weak var checkmarkImageView: UIImageView!
 
+    @IBOutlet weak var xImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +41,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         operationSymbolLabel.text = "+"
         operationLabel.text = operation
         numberGenerator()
+        scoreLabel.text = "Score: " + String(score)
+        
+        // make check and x invisible
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,8 +71,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if userAnswer == answer {
             correctAnswerLabel.text = "The answer is \(answer). You are correct!"
+            //make check visible
+            score += 5
+            scoreLabel.text = "Score: " + String(score)
         } else {
             correctAnswerLabel.text = "The answer is \(answer). You are incorrect."
+            //make x visible
+            score += -5
+            scoreLabel.text = "Score: " + String(score)
         }
         
         return true
@@ -136,6 +152,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         firstNumberLabel.text = String(firstNumberInt)
         secondNumberLabel.text = String(secondNumberInt)
+        
+        // make check and x invisible
 
     }
     
