@@ -19,53 +19,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lM-kP-Kq5">
-                                <rect key="frame" x="235" y="285" width="119" height="30"/>
-                                <state key="normal" title="Check Answer"/>
-                                <connections>
-                                    <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KCg-md-3im"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jah-Hs-FCQ">
                                 <rect key="frame" x="50" y="144" width="540" height="30"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TaP-0K-zbv">
-                                        <rect key="frame" x="0.0" y="0.0" width="161" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msl-RE-osd">
-                                        <rect key="frame" x="171" y="0.0" width="29" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeO-o6-C8O">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w7c-lK-ibu">
-                                        <rect key="frame" x="210" y="0.0" width="161" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhC-nK-hJ1">
-                                        <rect key="frame" x="381" y="0.0" width="11" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msl-RE-osd">
+                                        <rect key="frame" x="15" y="0.0" width="29" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lcI-jW-HOh">
-                                        <rect key="frame" x="402" y="0.0" width="138" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2R-Fo-0Vt">
+                                        <rect key="frame" x="54" y="0.0" width="5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhC-nK-hJ1">
+                                        <rect key="frame" x="69" y="0.0" width="11" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lcI-jW-HOh">
+                                        <rect key="frame" x="90" y="0.0" width="450" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="lcI-jW-HOh" firstAttribute="width" secondItem="TaP-0K-zbv" secondAttribute="width" id="FNC-eq-mOg"/>
-                                    <constraint firstItem="w7c-lK-ibu" firstAttribute="width" secondItem="TaP-0K-zbv" secondAttribute="width" id="RMx-PR-Jpf"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="FNC-eq-mOg"/>
-                                    </mask>
-                                </variation>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Rc-O6-3fg">
                                 <rect key="frame" x="0.0" y="39" width="300" height="44"/>
@@ -146,34 +132,25 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WsS-HG-wG4" secondAttribute="bottom" constant="20" id="1Cp-la-m1t"/>
                             <constraint firstItem="9Rc-O6-3fg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3Ko-Em-qmN"/>
                             <constraint firstItem="jah-Hs-FCQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="5I4-1T-XPc"/>
-                            <constraint firstItem="3lM-kP-Kq5" firstAttribute="top" secondItem="jah-Hs-FCQ" secondAttribute="bottom" constant="150" id="CLh-RG-xZo"/>
                             <constraint firstItem="jah-Hs-FCQ" firstAttribute="top" secondItem="9Rc-O6-3fg" secondAttribute="bottom" constant="61" id="MUF-RA-drx"/>
-                            <constraint firstItem="3lM-kP-Kq5" firstAttribute="top" secondItem="jah-Hs-FCQ" secondAttribute="bottom" constant="15" id="RWP-4M-aCp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9Rc-O6-3fg" secondAttribute="trailing" constant="-20" id="SKv-fR-F3v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jah-Hs-FCQ" secondAttribute="trailing" constant="10" id="SVr-Dm-2Eu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WsS-HG-wG4" secondAttribute="trailing" id="Tz2-n6-7Nz"/>
                             <constraint firstItem="Qgt-BR-oTJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VfK-3e-fkU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3lM-kP-Kq5" secondAttribute="trailing" id="Wfy-lo-H0G"/>
                             <constraint firstItem="9Rc-O6-3fg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="YWa-q7-EJW"/>
-                            <constraint firstItem="3lM-kP-Kq5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="awj-TS-9Be"/>
                             <constraint firstItem="WsS-HG-wG4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fBz-PL-0mn"/>
                             <constraint firstItem="Qgt-BR-oTJ" firstAttribute="top" secondItem="9Rc-O6-3fg" secondAttribute="bottom" constant="16" id="y01-Oh-C6O"/>
                             <constraint firstItem="Qgt-BR-oTJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="z6F-8w-rZx"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="RWP-4M-aCp"/>
-                            </mask>
-                        </variation>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="correctAnswerLabel" destination="2ce-XE-67r" id="WDy-3d-m5r"/>
-                        <outlet property="firstNumberTextField" destination="TaP-0K-zbv" id="4o8-VG-RsZ"/>
+                        <outlet property="firstNumberLabel" destination="XeO-o6-C8O" id="Zfp-BL-WMy"/>
                         <outlet property="operationLabel" destination="Qgt-BR-oTJ" id="V9j-h6-EoA"/>
                         <outlet property="operationSymbolLabel" destination="msl-RE-osd" id="AOz-vq-LdY"/>
-                        <outlet property="secondNumberTextField" destination="w7c-lK-ibu" id="HP8-DC-rxy"/>
+                        <outlet property="secondNumberLabel" destination="H2R-Fo-0Vt" id="mMC-w9-Od5"/>
                         <outlet property="userAnswerTextField" destination="lcI-jW-HOh" id="qAx-p4-dMI"/>
                     </connections>
                 </viewController>

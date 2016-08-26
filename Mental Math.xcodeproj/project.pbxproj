@@ -146,6 +146,7 @@
 				TargetAttributes = {
 					F0297A1F1D6E9D1B00D79811 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 8SYMB9BM5N;
 					};
 					F0297A331D6E9D1B00D79811 = {
 						CreatedOnToolsVersion = 7.3;
@@ -329,9 +330,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Mental Math/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Math.Mental-Math";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Math.Mental-Math.Fiona";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -340,9 +342,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Mental Math/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Math.Mental-Math";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Math.Mental-Math.Fiona";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -390,6 +393,7 @@
 				F0297A3F1D6E9D1B00D79811 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0297A401D6E9D1B00D79811 /* Build configuration list for PBXNativeTarget "Mental MathTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +402,7 @@
 				F0297A421D6E9D1B00D79811 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,18 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
-    var firstNumberInt: Int = 6
-    var secondNumberInt: Int = 5
+    var firstNumberInt: Int = 0
+    var secondNumberInt: Int = 0
     var operation: String = "default"
     var answer:Int = 0
     var userAnswer:Int = 2
     
+    @IBOutlet weak var firstNumberLabel: UILabel!
+    @IBOutlet weak var secondNumberLabel: UILabel!
 
-    @IBOutlet weak var firstNumberTextField: UITextField!
-    @IBOutlet weak var secondNumberTextField: UITextField!
     @IBOutlet weak var userAnswerTextField: UITextField!
     @IBOutlet weak var correctAnswerLabel: UILabel!
 
@@ -28,7 +28,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Handle the text field's user input through delegate callbacks.
+        userAnswerTextField.delegate = self
+        
+        operation = "Addition"
+        operationSymbolLabel.text = "+"
+        operationLabel.text = operation
+        numberGenerator()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,54 +43,102 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: Actions
-    
-    @IBAction func add(sender: UIBarButtonItem) {
-        operation = "Addition"
-        operationSymbolLabel.text = "+"
-    }
-    
-    
-    @IBAction func subtract(sender: UIBarButtonItem) {
-        operation = "Subtraction"
-        operationSymbolLabel.text = "-"
-    }
-    
-    @IBAction func multiply(sender: UIBarButtonItem) {
-        operation = "Multiplication"
-        operationSymbolLabel.text = "x"
-    }
-    
-    @IBAction func divide(sender: UIBarButtonItem) {
-        operation = "Division"
-        operationSymbolLabel.text = "÷"
-    }
-    
-    @IBAction func newNumbers(sender: UIButton) {
+    // MARK: UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        
         switch operation {
             case "Addition":
-                firstNumberInt = Int(arc4random_uniform(99) + 1)
-                secondNumberInt = Int(arc4random_uniform(99) + 1)
-                firstNumberTextField.text = String(firstNumberInt)
-                secondNumberTextField.text = String(secondNumberInt)
-            
-            default:
-                firstNumberInt = 0
+                answer = firstNumberInt + secondNumberInt
+            case "Subtraction":
+                answer = firstNumberInt - secondNumberInt
+            case "Multiplication":
+                answer = firstNumberInt * secondNumberInt
+            case "Division": break
+            default: break
         }
-        self.operationLabel.text = operation
-    }
-    
-    @IBAction func checkAnswer(sender: UIButton) {
-        answer = firstNumberInt + secondNumberInt
-        userAnswer = Int(userAnswerTextField.text!)!
+        
         if userAnswer == answer {
             correctAnswerLabel.text = "The answer is \(answer). You are correct!"
         } else {
             correctAnswerLabel.text = "The answer is \(answer). You are incorrect."
         }
+        
+        return true
     }
-   
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        userAnswer = Int(userAnswerTextField.text!)!
+    }
+    
+    
+    // MARK: Actions
+    
+    @IBAction func add(sender: UIBarButtonItem) {
+        operation = "Addition"
+        self.operationLabel.text = operation
+        operationSymbolLabel.text = "+"
+        numberGenerator()
+    }
+    
+    @IBAction func subtract(sender: UIBarButtonItem) {
+        operation = "Subtraction"
+        self.operationLabel.text = operation
+        operationSymbolLabel.text = "-"
+        numberGenerator()
+    }
+    
+    @IBAction func multiply(sender: UIBarButtonItem) {
+        operation = "Multiplication"
+        self.operationLabel.text = operation
+        operationSymbolLabel.text = "x"
+        numberGenerator()
+    }
+    
+    @IBAction func divide(sender: UIBarButtonItem) {
+        operation = "Division"
+        self.operationLabel.text = operation
+        operationSymbolLabel.text = "÷"
+        numberGenerator()
+    }
+    
+    
+    @IBAction func newNumbers(sender: UIButton) {
+        numberGenerator()
+    }
+    
+    func numberGenerator() {
+        firstNumberLabel.text = ""
+        secondNumberLabel.text = ""
+        userAnswerTextField.text = ""
+        correctAnswerLabel.text = "Result"
+       //operationLabel.text = "Operation"
+        //operationSymbolLabel.text = "N/A"
+        
+        switch operation {
+            case "Addition":
+                firstNumberInt = Int(arc4random_uniform(99) + 1)
+                secondNumberInt = Int(arc4random_uniform(99) + 1)
+            case "Subtraction":
+                firstNumberInt = Int(arc4random_uniform(99) + 1)
+                secondNumberInt = Int(arc4random_uniform(UInt32(firstNumberInt)) + 1)
+            case "Multiplication":
+                firstNumberInt = Int(arc4random_uniform(11) + 1)
+                secondNumberInt = Int(arc4random_uniform(11) + 1)
+            case "Division":
+                secondNumberInt = Int(arc4random_uniform(11) + 1)
+                answer = Int(arc4random_uniform(11) + 1)
+                firstNumberInt = secondNumberInt * answer
 
+            default:
+                firstNumberInt = 0
+        }
+        firstNumberLabel.text = String(firstNumberInt)
+        secondNumberLabel.text = String(secondNumberInt)
+
+    }
+    
 }
 
 
