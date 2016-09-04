@@ -36,6 +36,7 @@
 		F0297A341D6E9D1B00D79811 /* Mental MathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mental MathTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0297A381D6E9D1B00D79811 /* Mental_MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mental_MathTests.swift; sourceTree = "<group>"; };
 		F0297A3A1D6E9D1B00D79811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0BAB9E51D7B57140000E65E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +227,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F0297A281D6E9D1B00D79811 /* Base */,
+				F0BAB9E51D7B57140000E65E /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -17,22 +17,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var answer:Int = 0
     var userAnswer:Int = 2
     var score = 0
-    
+    var time = 10
+    var SwiftTimer = NSTimer()
+    var counter = 1
+    var playPauseEnabled = true
     
     @IBOutlet weak var firstNumberLabel: UILabel!
     @IBOutlet weak var secondNumberLabel: UILabel!
-
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var userAnswerTextField: UITextField!
     @IBOutlet weak var correctAnswerLabel: UILabel!
-
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var operationLabel: UILabel!
     @IBOutlet weak var operationSymbolLabel: UILabel!
-    
     @IBOutlet weak var checkmarkImageView: UIImageView!
-
-    @IBOutlet weak var xImageView: UIImageView!
-    
+    @IBOutlet weak var cover: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,22 +39,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Handle the text field's user input through delegate callbacks.
         userAnswerTextField.delegate = self
         
+        checkmarkImageView.hidden = true
         operation = "Addition"
         operationSymbolLabel.text = "+"
         operationLabel.text = operation
-        numberGenerator()
         scoreLabel.text = "Score: " + String(score)
-        
-        // make check and x invisible
-        checkmarkImageView.hidden = true
-        xImageView.hidden = true
-        /*
-        var centerXConst = NSLayoutConstraint(item: checkmarkImageView, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1, constant: 1)
-        var centerYConst = NSLayoutConstraint(item: checkmarkImageView, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1, constant: 1)
-        
-        self.view.addLayoutConstraints([centerXConst, centerYConst])
-        */
-    }
+        cover.hidden = false
+        correctAnswerLabel.hidden = true
+        numberGenerator()
+        SwiftTimer.invalidate()
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,6 +59,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
+        SwiftTimer.invalidate()
         
         switch operation {
             case "Addition":
@@ -77,22 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             case "Division": break
             default: break
         }
-        
-        if userAnswer == answer {
-            correctAnswerLabel.text = "The answer is \(answer). You are correct!"
-            // makes check show
-            checkmarkImageView.image = UIImage(named: "Checkmark")
-            score += 5
-            scoreLabel.text = "Score: " + String(score)
-        } else {
-            correctAnswerLabel.text = "The answer is \(answer). You are incorrect."
-            // makes x show
-            //xImageView.hidden = false
-            checkmarkImageView.image = UIImage(named: "X")
-            score += -5
-            scoreLabel.text = "Score: " + String(score)
-        }
-        
+        answerChecker()
         return true
     }
     
@@ -104,6 +83,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: Actions
     
     @IBAction func add(sender: UIBarButtonItem) {
+        cover.hidden = true
         operation = "Addition"
         self.operationLabel.text = operation
         operationSymbolLabel.text = "+"
@@ -111,6 +91,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func subtract(sender: UIBarButtonItem) {
+        cover.hidden = true
         operation = "Subtraction"
         self.operationLabel.text = operation
         operationSymbolLabel.text = "-"
@@ -118,6 +99,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func multiply(sender: UIBarButtonItem) {
+        cover.hidden = true
         operation = "Multiplication"
         self.operationLabel.text = operation
         operationSymbolLabel.text = "x"
@@ -125,23 +107,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func divide(sender: UIBarButtonItem) {
+        cover.hidden = true
         operation = "Division"
         self.operationLabel.text = operation
         operationSymbolLabel.text = "÷"
         numberGenerator()
     }
-    
-    
+  
     @IBAction func newNumbers(sender: UIButton) {
         numberGenerator()
     }
     
     func numberGenerator() {
+        print("MARK")
+        SwiftTimer.invalidate()
+        playPauseEnabled = true
         firstNumberLabel.text = ""
         secondNumberLabel.text = ""
         userAnswerTextField.text = ""
-        correctAnswerLabel.text = "Result"
-       //operationLabel.text = "Operation"
+        correctAnswerLabel.hidden = true
+        //operationLabel.text = "Operation"
         //operationSymbolLabel.text = "N/A"
         
         switch operation {
@@ -165,8 +150,75 @@ class ViewController: UIViewController, UITextFieldDelegate {
         firstNumberLabel.text = String(firstNumberInt)
         secondNumberLabel.text = String(secondNumberInt)
         
-        checkmarkImageView.hidden = true
-        xImageView.hidden = true
+       checkmarkImageView.hidden = true
+        time = 10
+        counter = 1
+        timer(time)
+    }
+    
+    
+    @IBAction func start(sender: UIBarButtonItem) {
+        if (playPauseEnabled){
+            cover.hidden = true
+            timer(time)
+        }
+    }
+    
+    @IBAction func Pause(sender: UIBarButtonItem) {
+        if (playPauseEnabled) {
+            SwiftTimer.invalidate()
+            cover.hidden = false
+        }
+    }
+
+    
+    func timer(time: Int) {
+        SwiftTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateTimer), userInfo: time, repeats: true)
+    }
+    
+    func updateTimer(SwiftTimer:NSTimer) {
+       print("counter", counter)
+        if (counter == 1) {
+            time = SwiftTimer.userInfo as! Int
+        }
+        
+        timerLabel.text = "Time: \(time)"
+        
+        print(time)
+
+        if (time <= 0) {
+            SwiftTimer.invalidate()
+            answerChecker()
+        }
+        
+        counter += 1
+
+        time -= 1
+    }
+    
+    func answerChecker() {
+        playPauseEnabled = false
+        correctAnswerLabel.hidden = false
+        if userAnswer == answer {
+            correctAnswerLabel.text = "The answer is \(answer). You are correct!"
+            // makes check show
+            checkmarkImageView.hidden = false
+            checkmarkImageView.image = UIImage(named: "Checkmark")
+            score += 5
+            scoreLabel.text = "Score: " + String(score)
+        } else {
+            if (time < 0) {
+                correctAnswerLabel.text = "You ran out of time! The correct answer is \(answer)."
+            } else {
+                correctAnswerLabel.text = "The answer is \(answer). You are incorrect."
+            }
+            // makes x show
+            
+            checkmarkImageView.hidden = false
+            checkmarkImageView.image = UIImage(named: "X")
+            score += -5
+            scoreLabel.text = "Score: " + String(score)
+        }
 
     }
     

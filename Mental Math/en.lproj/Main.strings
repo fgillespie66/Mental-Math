@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Result"; ObjectID = "2ce-XE-67r"; */
+"2ce-XE-67r.text" = "Result";
+
+/* Class = "UIBarButtonItem"; title = "+"; ObjectID = "9ac-hm-5S8"; */
+"9ac-hm-5S8.title" = "+";
+
+/* Class = "UIBarButtonItem"; title = "-"; ObjectID = "Asm-q7-MTM"; */
+"Asm-q7-MTM.title" = "-";
+
+/* Class = "UILabel"; text = " "; ObjectID = "H2R-Fo-0Vt"; */
+"H2R-Fo-0Vt.text" = " ";
+
+/* Class = "UILabel"; text = "Score: 0"; ObjectID = "HdY-KQ-RQD"; */
+"HdY-KQ-RQD.text" = "Score: 0";
+
+/* Class = "UILabel"; text = "="; ObjectID = "HhC-nK-hJ1"; */
+"HhC-nK-hJ1.text" = "=";
+
+/* Class = "UILabel"; text = "Operation"; ObjectID = "Qgt-BR-oTJ"; */
+"Qgt-BR-oTJ.text" = "Operation";
+
+/* Class = "UILabel"; text = " "; ObjectID = "XeO-o6-C8O"; */
+"XeO-o6-C8O.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "New Numbers"; ObjectID = "iF3-1L-wZ1"; */
+"iF3-1L-wZ1.normalTitle" = "New Numbers";
+
+/* Class = "UITextField"; placeholder = "Enter your answer"; ObjectID = "lcI-jW-HOh"; */
+"lcI-jW-HOh.placeholder" = "Enter your answer";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "lpL-7R-Nlz"; */
+"lpL-7R-Nlz.text" = "Label";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "msl-RE-osd"; */
+"msl-RE-osd.text" = "+";
+
+/* Class = "UIBarButtonItem"; title = "÷"; ObjectID = "ptF-CC-HwZ"; */
+"ptF-CC-HwZ.title" = "÷";
+
+/* Class = "UIBarButtonItem"; title = "x"; ObjectID = "us6-Pa-nbr"; */
+"us6-Pa-nbr.title" = "x";
