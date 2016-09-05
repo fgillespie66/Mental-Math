@@ -17,10 +17,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var answer:Int = 0
     var userAnswer:Int = 2
     var score = 0
-    var time = 10
+    var defaultTime = 15
+    var time = 0
     var SwiftTimer = NSTimer()
     var counter = 1
     var playPauseEnabled = true
+    var currentStreakInt = 0
+    var highestStreakInt = 0
     
     @IBOutlet weak var firstNumberLabel: UILabel!
     @IBOutlet weak var secondNumberLabel: UILabel!
@@ -32,6 +35,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var operationSymbolLabel: UILabel!
     @IBOutlet weak var checkmarkImageView: UIImageView!
     @IBOutlet weak var cover: UILabel!
+    @IBOutlet weak var currentStreak: UILabel!
+    @IBOutlet weak var highestStreak: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,8 +156,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         firstNumberLabel.text = String(firstNumberInt)
         secondNumberLabel.text = String(secondNumberInt)
         
-       checkmarkImageView.hidden = true
-        time = 10
+        checkmarkImageView.hidden = true
+        time = defaultTime
         counter = 1
         timer(time)
     }
@@ -204,8 +210,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // makes check show
             checkmarkImageView.hidden = false
             checkmarkImageView.image = UIImage(named: "Checkmark")
-            score += 5
+            score += time + 1
             scoreLabel.text = "Score: " + String(score)
+            currentStreakInt += 1
+            if (currentStreakInt >= highestStreakInt) {
+                highestStreakInt = currentStreakInt
+                highestStreak.text = "Highest Streak: " + String(highestStreakInt)
+                print("Highest streak", highestStreakInt)
+            }
         } else {
             if (time < 0) {
                 correctAnswerLabel.text = "You ran out of time! The correct answer is \(answer)."
@@ -218,7 +230,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             checkmarkImageView.image = UIImage(named: "X")
             score += -5
             scoreLabel.text = "Score: " + String(score)
+            currentStreakInt = 0
         }
+        currentStreak.text = "Current Streak: " + String(currentStreakInt)
 
     }
     
