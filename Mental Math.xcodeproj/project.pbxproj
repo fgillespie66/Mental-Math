@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0100E841D8F87FD00F5F184 /* GameModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100E831D8F87FD00F5F184 /* GameModes.swift */; };
 		F0297A241D6E9D1B00D79811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0297A231D6E9D1B00D79811 /* AppDelegate.swift */; };
 		F0297A261D6E9D1B00D79811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0297A251D6E9D1B00D79811 /* ViewController.swift */; };
 		F0297A291D6E9D1B00D79811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0297A271D6E9D1B00D79811 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F0100E831D8F87FD00F5F184 /* GameModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModes.swift; sourceTree = "<group>"; };
 		F0297A201D6E9D1B00D79811 /* Mental Math.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mental Math.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0297A231D6E9D1B00D79811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0297A251D6E9D1B00D79811 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				F0297A231D6E9D1B00D79811 /* AppDelegate.swift */,
 				F0297A251D6E9D1B00D79811 /* ViewController.swift */,
 				F0297A271D6E9D1B00D79811 /* Main.storyboard */,
+				F0100E831D8F87FD00F5F184 /* GameModes.swift */,
 				F0832CE31D7DE76B001D0407 /* homeScreenViewController.swift */,
 				F0832CE11D7DD7F0001D0407 /* homeScreenTableViewCell.swift */,
 				F0297A2A1D6E9D1B00D79811 /* Assets.xcassets */,
@@ -208,6 +211,7 @@
 				F0297A261D6E9D1B00D79811 /* ViewController.swift in Sources */,
 				F0832CE41D7DE76B001D0407 /* homeScreenViewController.swift in Sources */,
 				F0297A241D6E9D1B00D79811 /* AppDelegate.swift in Sources */,
+				F0100E841D8F87FD00F5F184 /* GameModes.swift in Sources */,
 				F0832CE21D7DD7F0001D0407 /* homeScreenTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

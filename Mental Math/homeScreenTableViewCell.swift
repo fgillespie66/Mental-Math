@@ -12,6 +12,12 @@ class homeScreenTableViewCell: UITableViewCell {
 
     @IBOutlet weak var arithmeticTableViewCell: UILabel!
     
+    // MARK: Properties
+    
+    @IBOutlet weak var gameLabel: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

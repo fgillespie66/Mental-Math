@@ -9,15 +9,35 @@
 import UIKit
 
 class homeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var gameModes = [GameModes]()
+    
     @IBOutlet weak var table: UITableView!
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(gameModes.count)
+        return gameModes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // your cell coding
-        return UITableViewCell()
+        //return UITableViewCell()
+        
+        let cellIdentifier = "homeScreenTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! homeScreenTableViewCell
+        
+        let gameMode = gameModes[indexPath.row]
+        cell.gameLabel.text = gameMode.name
+        cell.photoImageView.image = gameMode.photo
+        cell.highScoreLabel.text = String(gameMode.highScore)
+        
+        return cell
+
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -28,14 +48,26 @@ class homeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Load games
+        loadGames()
     }
 
+    func loadGames() {
+        let photo1 = UIImage(named: "arithmetic")!
+        let game1 = GameModes(name: "Arithmetic", photo: photo1, highScore: 0)
+        
+        gameModes += [game1]
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
+  
     /*
     // MARK: - Navigation
 

@@ -11,7 +11,7 @@
         <!--Mental Math!-->
         <scene sceneID="Hvj-4b-6IN">
             <objects>
-                <viewController id="kn5-wx-5lp" sceneMemberID="viewController">
+                <viewController id="kn5-wx-5lp" customClass="homeScreenViewController" customModule="Mental_Math" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PLd-gP-0e5"/>
                         <viewControllerLayoutGuide type="bottom" id="dLB-UJ-n3V"/>
@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="height" constant="45" id="gVp-jc-z9B"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1DI-nF-D0k">
@@ -35,13 +35,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="332" id="1At-90-BmD"/>
                                 </constraints>
-                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hZV-lP-sAc">
-                                    <rect key="frame" x="0.0" y="118" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="homeScreenTableViewCell" rowHeight="90" id="tOL-0Z-m7a" customClass="homeScreenTableViewCell" customModule="Mental_Math" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="90"/>
@@ -59,7 +52,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFH-o8-ugc">
                                                     <rect key="frame" x="106" y="60" width="172" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arithmetic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBN-eW-sGy">
@@ -69,7 +62,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="oF6-kV-M0J"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="30"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -96,6 +89,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="arithmeticTableViewCell" destination="HBN-eW-sGy" id="XLq-MP-Cy7"/>
+                                            <outlet property="gameLabel" destination="HBN-eW-sGy" id="WyP-Jd-wp0"/>
+                                            <outlet property="highScoreLabel" destination="CFH-o8-ugc" id="O1P-FZ-X6W"/>
+                                            <outlet property="photoImageView" destination="c5i-Kk-K7a" id="qft-eb-WrS"/>
                                             <segue destination="BYZ-38-t0r" kind="show" id="JQu-IA-cJg"/>
                                         </connections>
                                     </tableViewCell>
@@ -125,35 +121,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79u-Hh-iXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-205" y="159"/>
-        </scene>
-        <!--Root View Controller-->
-        <scene sceneID="MVJ-D1-X97">
-            <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Ibt-Ro-ka0" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JHK-wj-ZQ8">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="31h-tN-F7B">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="31h-tN-F7B" id="HUg-YU-q8K">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Ibt-Ro-ka0" id="Tqp-gb-jOS"/>
-                            <outlet property="delegate" destination="Ibt-Ro-ka0" id="3OU-3t-ikc"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="H9e-uH-d1z"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CSB-wq-SJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1129" y="-360"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -252,7 +219,7 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press ▸" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rak-Sp-34z">
                                 <rect key="frame" x="0.0" y="178" width="600" height="74"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="74" id="rQu-b4-uPm"/>
                                 </constraints>
@@ -263,19 +230,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Highest Streak:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="149" translatesAutoresizingMaskIntoConstraints="NO" id="T3B-wf-2Yh">
                                 <rect key="frame" x="462" y="88" width="118" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Current Streak:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKI-a3-k35">
                                 <rect key="frame" x="463" y="133" width="117" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-do-zie">
                                 <rect key="frame" x="20" y="133" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
