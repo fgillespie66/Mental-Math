@@ -49,14 +49,8 @@
                                                         <constraint firstAttribute="width" constant="90" id="Di7-VJ-jFa"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFH-o8-ugc">
-                                                    <rect key="frame" x="106" y="60" width="172" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arithmetic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBN-eW-sGy">
-                                                    <rect key="frame" x="106" y="17" width="172" height="30"/>
+                                                    <rect key="frame" x="106" y="8" width="172" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="172" id="MgM-AR-f66"/>
                                                         <constraint firstAttribute="height" constant="30" id="oF6-kV-M0J"/>
@@ -65,9 +59,16 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFH-o8-ugc">
+                                                    <rect key="frame" x="106" y="60" width="172" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="c5i-Kk-K7a" firstAttribute="centerY" secondItem="jgn-OI-3IE" secondAttribute="centerY" id="0gF-qz-fAZ"/>
+                                                <constraint firstItem="CFH-o8-ugc" firstAttribute="bottom" secondItem="jgn-OI-3IE" secondAttribute="bottomMargin" id="56g-Ai-1FH"/>
                                                 <constraint firstItem="c5i-Kk-K7a" firstAttribute="leading" secondItem="jgn-OI-3IE" secondAttribute="leadingMargin" id="5Vd-SW-tPh"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="HBN-eW-sGy" secondAttribute="leading" id="6uQ-wX-CtK"/>
                                                 <constraint firstItem="HBN-eW-sGy" firstAttribute="leading" secondItem="CFH-o8-ugc" secondAttribute="leading" id="BrG-uh-8Im"/>
@@ -75,15 +76,18 @@
                                                 <constraint firstItem="CFH-o8-ugc" firstAttribute="top" secondItem="HBN-eW-sGy" secondAttribute="bottom" constant="13" id="JdZ-Wg-3Io"/>
                                                 <constraint firstItem="c5i-Kk-K7a" firstAttribute="top" secondItem="jgn-OI-3IE" secondAttribute="top" id="Sw9-S7-bbC"/>
                                                 <constraint firstItem="HBN-eW-sGy" firstAttribute="centerY" secondItem="jgn-OI-3IE" secondAttribute="centerY" id="TlQ-9a-UtV"/>
+                                                <constraint firstItem="HBN-eW-sGy" firstAttribute="top" secondItem="jgn-OI-3IE" secondAttribute="topMargin" constant="9" id="gp7-B0-2CR"/>
                                                 <constraint firstItem="HBN-eW-sGy" firstAttribute="trailing" secondItem="CFH-o8-ugc" secondAttribute="trailing" id="j3g-o9-UFM"/>
                                                 <constraint firstItem="HBN-eW-sGy" firstAttribute="leading" secondItem="c5i-Kk-K7a" secondAttribute="trailing" constant="16" id="px1-dE-0VZ"/>
-                                                <constraint firstItem="HBN-eW-sGy" firstAttribute="top" secondItem="jgn-OI-3IE" secondAttribute="topMargin" constant="9" id="tse-zJ-epX"/>
+                                                <constraint firstItem="HBN-eW-sGy" firstAttribute="top" secondItem="jgn-OI-3IE" secondAttribute="topMargin" id="tse-zJ-epX"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="6uQ-wX-CtK"/>
                                                     <exclude reference="TlQ-9a-UtV"/>
+                                                    <exclude reference="gp7-B0-2CR"/>
                                                     <exclude reference="px1-dE-0VZ"/>
+                                                    <exclude reference="JdZ-Wg-3Io"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -117,6 +121,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Mental Math!" id="hxe-TI-Ylu"/>
+                    <connections>
+                        <outlet property="table" destination="1DI-nF-D0k" id="kDH-vY-bed"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79u-Hh-iXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -300,7 +307,7 @@
                         <leftBarButtonItems>
                             <barButtonItem systemItem="done" id="cQ8-hS-RJS">
                                 <connections>
-                                    <segue destination="kn5-wx-5lp" kind="show" id="MED-R5-wz6"/>
+                                    <segue destination="kn5-wx-5lp" kind="show" identifier="segueTest" id="MED-R5-wz6"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="play" id="3uE-fH-VgF">

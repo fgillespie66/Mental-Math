@@ -60,6 +60,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+   /* override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "segueTest") {
+            var svc = segue!.destinationViewController as! homeScreenViewController;
+           // svc.toPass = highScoreLabel.text
+        }
+    }
+ */
 
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {

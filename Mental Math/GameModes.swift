@@ -13,11 +13,11 @@ class GameModes: NSObject {
     
     var name: String
     var photo: UIImage?
-    var highScore: Int
+    var highScore: String
     
     // MARK: Initialization
     
-    init(name: String, photo: UIImage?, highScore: Int) {
+    init(name: String, photo: UIImage?, highScore: String) {
         self.name = name
         self.photo = photo
         self.highScore = highScore

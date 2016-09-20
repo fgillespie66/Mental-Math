@@ -26,7 +26,7 @@ class homeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // your cell coding
-        //return UITableViewCell()
+        // return UITableViewCell()
         
         let cellIdentifier = "homeScreenTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! homeScreenTableViewCell
@@ -51,12 +51,15 @@ class homeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // Load games
         loadGames()
+        
+        table.delegate = self
+        table.dataSource = self
     }
 
     func loadGames() {
         let photo1 = UIImage(named: "arithmetic")!
-        let game1 = GameModes(name: "Arithmetic", photo: photo1, highScore: 0)
-        
+        let game1 = GameModes(name: "Arithmetic", photo: photo1, highScore: " " )
+        // FIX HIGH SCORE
         gameModes += [game1]
         
     }
