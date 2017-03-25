@@ -39,7 +39,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var highestStreak: UILabel!
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         // Handle the text field's user input through delegate callbacks.
@@ -54,9 +55,50 @@ class ViewController: UIViewController, UITextFieldDelegate {
         correctAnswerLabel.isHidden = true
         numberGenerator()
         SwiftTimer.invalidate()
+        
+        // --- add UIToolBar on keyboard and Done button on UIToolbar --- //
+        self.addDoneButtonOnKeyboard()
+    }
+    
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(ViewController.doneButtonAction))
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.userAnswerTextField.inputAccessoryView = doneToolbar
+    }
+    
+    // this is when the done button is pressed, and the answer is submitted
+    func doneButtonAction() {
+        self.userAnswerTextField.resignFirstResponder()
+        
+        SwiftTimer.invalidate()
+        
+        switch operation {
+        case "Addition":
+            answer = firstNumberInt + secondNumberInt
+        case "Subtraction":
+            answer = firstNumberInt - secondNumberInt
+        case "Multiplication":
+            answer = firstNumberInt * secondNumberInt
+        case "Division": break
+        default: break
         }
+        answerChecker()
+ 
 
-    override func didReceiveMemoryWarning() {
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -69,26 +111,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
  */
 
-    // MARK: UITextFieldDelegate
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        textField.resignFirstResponder()
-        SwiftTimer.invalidate()
-        
-        switch operation {
-            case "Addition":
-                answer = firstNumberInt + secondNumberInt
-            case "Subtraction":
-                answer = firstNumberInt - secondNumberInt
-            case "Multiplication":
-                answer = firstNumberInt * secondNumberInt
-            case "Division": break
-            default: break
-        }
-        answerChecker()
-        return true
-    }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
         userAnswer = Int(userAnswerTextField.text!)!
     }

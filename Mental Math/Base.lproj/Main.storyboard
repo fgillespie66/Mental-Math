@@ -81,11 +81,11 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
+                                                    <exclude reference="JdZ-Wg-3Io"/>
                                                     <exclude reference="6uQ-wX-CtK"/>
                                                     <exclude reference="TlQ-9a-UtV"/>
                                                     <exclude reference="gp7-B0-2CR"/>
                                                     <exclude reference="px1-dE-0VZ"/>
-                                                    <exclude reference="JdZ-Wg-3Io"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -205,7 +205,7 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lcI-jW-HOh">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
