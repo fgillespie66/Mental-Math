@@ -15,23 +15,23 @@ class homeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var table: UITableView!
     
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(gameModes.count)
         return gameModes.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // your cell coding
         // return UITableViewCell()
         
         let cellIdentifier = "homeScreenTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! homeScreenTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! homeScreenTableViewCell
         
-        let gameMode = gameModes[indexPath.row]
+        let gameMode = gameModes[(indexPath as NSIndexPath).row]
         cell.gameLabel.text = gameMode.name
         cell.photoImageView.image = gameMode.photo
         cell.highScoreLabel.text = String(gameMode.highScore)
@@ -40,7 +40,7 @@ class homeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
 
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // cell selected code here
     }
 
@@ -57,7 +57,7 @@ class homeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     func loadGames() {
-        let photo1 = UIImage(named: "arithmetic")!
+        let photo1 = UIImage(named: "Arithmetic")!
         let game1 = GameModes(name: "Arithmetic", photo: photo1, highScore: " " )
         // FIX HIGH SCORE
         gameModes += [game1]

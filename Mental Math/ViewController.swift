@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var score = 0
     var defaultTime = 15
     var time = 0
-    var SwiftTimer = NSTimer()
+    var SwiftTimer = Timer()
     var counter = 1
     var playPauseEnabled = true
     var currentStreakInt = 0
@@ -45,13 +45,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Handle the text field's user input through delegate callbacks.
         userAnswerTextField.delegate = self
         
-        checkmarkImageView.hidden = true
+        checkmarkImageView.isHidden = true
         operation = "Addition"
         operationSymbolLabel.text = "+"
         operationLabel.text = operation
         scoreLabel.text = "Score: " + String(score)
-        cover.hidden = false
-        correctAnswerLabel.hidden = true
+        cover.isHidden = false
+        correctAnswerLabel.isHidden = true
         numberGenerator()
         SwiftTimer.invalidate()
         }
@@ -70,7 +70,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
  */
 
     // MARK: UITextFieldDelegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
         SwiftTimer.invalidate()
@@ -89,46 +89,46 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         userAnswer = Int(userAnswerTextField.text!)!
     }
     
     
     // MARK: Actions
     
-    @IBAction func add(sender: UIBarButtonItem) {
-        cover.hidden = true
+    @IBAction func add(_ sender: UIBarButtonItem) {
+        cover.isHidden = true
         operation = "Addition"
         self.operationLabel.text = operation
         operationSymbolLabel.text = "+"
         numberGenerator()
     }
     
-    @IBAction func subtract(sender: UIBarButtonItem) {
-        cover.hidden = true
+    @IBAction func subtract(_ sender: UIBarButtonItem) {
+        cover.isHidden = true
         operation = "Subtraction"
         self.operationLabel.text = operation
         operationSymbolLabel.text = "-"
         numberGenerator()
     }
     
-    @IBAction func multiply(sender: UIBarButtonItem) {
-        cover.hidden = true
+    @IBAction func multiply(_ sender: UIBarButtonItem) {
+        cover.isHidden = true
         operation = "Multiplication"
         self.operationLabel.text = operation
         operationSymbolLabel.text = "x"
         numberGenerator()
     }
     
-    @IBAction func divide(sender: UIBarButtonItem) {
-        cover.hidden = true
+    @IBAction func divide(_ sender: UIBarButtonItem) {
+        cover.isHidden = true
         operation = "Division"
         self.operationLabel.text = operation
         operationSymbolLabel.text = "÷"
         numberGenerator()
     }
   
-    @IBAction func newNumbers(sender: UIButton) {
+    @IBAction func newNumbers(_ sender: UIButton) {
         numberGenerator()
     }
     
@@ -139,7 +139,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         firstNumberLabel.text = ""
         secondNumberLabel.text = ""
         userAnswerTextField.text = ""
-        correctAnswerLabel.hidden = true
+        correctAnswerLabel.isHidden = true
         //operationLabel.text = "Operation"
         //operationSymbolLabel.text = "N/A"
         
@@ -164,33 +164,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
         firstNumberLabel.text = String(firstNumberInt)
         secondNumberLabel.text = String(secondNumberInt)
         
-        checkmarkImageView.hidden = true
+        checkmarkImageView.isHidden = true
         time = defaultTime
         counter = 1
         timer(time)
     }
     
     
-    @IBAction func start(sender: UIBarButtonItem) {
+    @IBAction func start(_ sender: UIBarButtonItem) {
         if (playPauseEnabled){
-            cover.hidden = true
+            cover.isHidden = true
             timer(time)
         }
     }
     
-    @IBAction func Pause(sender: UIBarButtonItem) {
+    @IBAction func Pause(_ sender: UIBarButtonItem) {
         if (playPauseEnabled) {
             SwiftTimer.invalidate()
-            cover.hidden = false
+            cover.isHidden = false
         }
     }
 
     
-    func timer(time: Int) {
-        SwiftTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateTimer), userInfo: time, repeats: true)
+    func timer(_ time: Int) {
+        SwiftTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: time, repeats: true)
     }
     
-    func updateTimer(SwiftTimer:NSTimer) {
+    func updateTimer(_ SwiftTimer:Timer) {
        print("counter", counter)
         if (counter == 1) {
             time = SwiftTimer.userInfo as! Int
@@ -212,11 +212,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func answerChecker() {
         playPauseEnabled = false
-        correctAnswerLabel.hidden = false
+        correctAnswerLabel.isHidden = false
         if userAnswer == answer {
             correctAnswerLabel.text = "The answer is \(answer). You are correct!"
             // makes check show
-            checkmarkImageView.hidden = false
+            checkmarkImageView.isHidden = false
             checkmarkImageView.image = UIImage(named: "Checkmark")
             score += time + 1
             scoreLabel.text = "Score: " + String(score)
@@ -234,7 +234,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             // makes x show
             
-            checkmarkImageView.hidden = false
+            checkmarkImageView.isHidden = false
             checkmarkImageView.image = UIImage(named: "X")
             score += -5
             scoreLabel.text = "Score: " + String(score)
