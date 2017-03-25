@@ -59,8 +59,11 @@ class homeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     func loadGames() {
         let photo1 = UIImage(named: "Arithmetic")!
         let game1 = GameModes(name: "Arithmetic", photo: photo1, highScore: " " )
+        
+        let photo2 = UIImage(named: "Factoring")
+        let game2 = GameModes(name: "Factoring", photo: photo2, highScore: " ")
         // FIX HIGH SCORE
-        gameModes += [game1]
+        gameModes += [game1, game2]
         
     }
     

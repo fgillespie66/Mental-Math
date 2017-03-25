@@ -14,6 +14,8 @@
 		F0297A2B1D6E9D1B00D79811 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0297A2A1D6E9D1B00D79811 /* Assets.xcassets */; };
 		F0297A2E1D6E9D1B00D79811 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0297A2C1D6E9D1B00D79811 /* LaunchScreen.storyboard */; };
 		F0297A391D6E9D1B00D79811 /* Mental_MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0297A381D6E9D1B00D79811 /* Mental_MathTests.swift */; };
+		F04C912D1E86119700215726 /* homeScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04C912C1E86119700215726 /* homeScreenTableViewController.swift */; };
+		F04C912F1E86155300215726 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04C912E1E86155300215726 /* Level.swift */; };
 		F0832CE21D7DD7F0001D0407 /* homeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0832CE11D7DD7F0001D0407 /* homeScreenTableViewCell.swift */; };
 		F0832CE41D7DE76B001D0407 /* homeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0832CE31D7DE76B001D0407 /* homeScreenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		F0297A341D6E9D1B00D79811 /* Mental MathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mental MathTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0297A381D6E9D1B00D79811 /* Mental_MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mental_MathTests.swift; sourceTree = "<group>"; };
 		F0297A3A1D6E9D1B00D79811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F04C912C1E86119700215726 /* homeScreenTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeScreenTableViewController.swift; sourceTree = "<group>"; };
+		F04C912E1E86155300215726 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		F0832CE11D7DD7F0001D0407 /* homeScreenTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeScreenTableViewCell.swift; sourceTree = "<group>"; };
 		F0832CE31D7DE76B001D0407 /* homeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeScreenViewController.swift; sourceTree = "<group>"; };
 		F0BAB9E51D7B57140000E65E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -89,8 +93,10 @@
 				F0297A271D6E9D1B00D79811 /* Main.storyboard */,
 				F0100E831D8F87FD00F5F184 /* GameModes.swift */,
 				F0832CE31D7DE76B001D0407 /* homeScreenViewController.swift */,
+				F04C912C1E86119700215726 /* homeScreenTableViewController.swift */,
 				F0832CE11D7DD7F0001D0407 /* homeScreenTableViewCell.swift */,
 				F0297A2A1D6E9D1B00D79811 /* Assets.xcassets */,
+				F04C912E1E86155300215726 /* Level.swift */,
 				F0297A2C1D6E9D1B00D79811 /* LaunchScreen.storyboard */,
 				F0297A2F1D6E9D1B00D79811 /* Info.plist */,
 			);
@@ -210,6 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04C912D1E86119700215726 /* homeScreenTableViewController.swift in Sources */,
+				F04C912F1E86155300215726 /* Level.swift in Sources */,
 				F0297A261D6E9D1B00D79811 /* ViewController.swift in Sources */,
 				F0832CE41D7DE76B001D0407 /* homeScreenViewController.swift in Sources */,
 				F0297A241D6E9D1B00D79811 /* AppDelegate.swift in Sources */,
